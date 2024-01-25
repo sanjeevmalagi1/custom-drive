@@ -1,0 +1,14 @@
+{
+  "name": "strac-drive",
+  "version": "1.0.0",
+  "description": "Assignment project for strac.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.3.3"
+  }
+}
