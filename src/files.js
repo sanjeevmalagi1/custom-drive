@@ -1,0 +1,35 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { google } = require('googleapis');
+
+const { authorize } = require('./utils/auth');
+const { render200, render400 } = require('./utils/renderer');
+const { handlerError } = require('./utils/error_handler');
+
+const SCOPE = ['https://www.googleapis.com/auth/drive'];
+const clientEmail = process.env.GOOGLE_DRIVE_SERVICE_CLIENT_EMAIL;
+const privateKey = process.env.GOOGLE_DRIVE_SERVICE_CLIENT_PRIVATE_KEY;
+const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;
+
+module.exports.handler = async () => {
+  try {
+    const authClient = await authorize(clientEmail, privateKey, SCOPE);
+
+    const drive = google.drive({ version: 'v3', auth: authClient });
+
+    const driveRes = await drive.files.list({
+      q: `'${folderId}' in parents and trashed=false`,
+      fields: 'files(id, name, mimeType)',
+    });
+
+    const response = {
+      items: driveRes.data.files,
+      type: 'file',
+    };
+
+    return render200(response);
+  } catch (errorResponse) {
+    const response = handlerError(errorResponse);
+
+    return render400(response);
+  }
+};

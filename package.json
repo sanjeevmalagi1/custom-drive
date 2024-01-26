@@ -1,14 +1,27 @@
 {
   "name": "strac-drive",
   "version": "1.0.0",
-  "description": "Assignment project for strac.",
+  "description": "Assignment project for strac",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint . --ext .js",
+    "test": "jest -i --colors --verbose --forceExit",
+    "test:watch": "jest -i --watchAll",
+    "coverage": "jest -i --coverage",
+    "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
+    "dev": "npx serverless offline --stage offline"
   },
-  "author": "",
+  "author": "Sanjeev M",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "jest": "^29.7.0",
     "serverless": "^3.38.0",
+    "serverless-dotenv-plugin": "^6.0.0",
     "serverless-offline": "^13.3.3"
+  },
+  "dependencies": {
+    "googleapis": "^131.0.0"
   }
 }

@@ -11,11 +11,27 @@ provider:
 
 plugins:
   - serverless-offline
+  - serverless-dotenv-plugin
 
 functions:
-  hello:
-    handler: handler.hello
+
+  list_files:
+    handler: src/files.handler
     events:
       - http:
-          path: /hello
+          path: api/v1/files
+          method: GET
+
+  list_file_users:
+    handler: src/users.handler
+    events:
+      - http:
+          path: api/v1/file/{file_id}/users
+          method: GET
+
+  download_file:
+    handler: src/download.handler
+    events:
+      - http:
+          path: api/v1/file/{file_id}/download
           method: GET
