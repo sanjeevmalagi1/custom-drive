@@ -22,6 +22,7 @@
     "serverless-offline": "^13.3.3"
   },
   "dependencies": {
+    "@aws-sdk/client-ssm": "^3.499.0",
     "googleapis": "^131.0.0"
   }
 }
