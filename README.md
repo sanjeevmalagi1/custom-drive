@@ -20,12 +20,15 @@ This project is a server-side application built using JavaScript/NodeJS and the 
 
 ## Usage
 
-1. Copy contents of ``.env.example` to `.env` file and replace them with your own creadentials.
+1. Copy contents of `.env.example` to `.env` file and replace them with your own creadentials.
 2. Run the application on your local machine: `npx serverless offline --stage offline`
 
 ## Demo
 Watch the Loom video for a step-by-step guide and a demonstration of the features:
 https://www.loom.com/share/2bf55a28b3bb4da4bca565f66f3cfd86
+
+In depth explaination of the code:
+https://www.loom.com/share/900dd4b0104b4721814fdb43d24b4523
 
 ## Documentation
 The api documentation is available on https://documenter.getpostman.com/view/15272127/2s9YypG3q4
