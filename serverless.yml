@@ -30,6 +30,20 @@ functions:
           path: api/v1/file/{file_id}/users
           method: GET
 
+  subscribe_file_users:
+    handler: src/subscribe.handler
+    events:
+      - http:
+          path: api/v1/file/{file_id}/subscribe
+          method: POST
+
+  webhook_file_users:
+    handler: src/webhook.handler
+    events:
+      - http:
+          path: api/v1/file/{file_id}/webhook
+          method: POST
+
   download_file:
     handler: src/download.handler
     events:
